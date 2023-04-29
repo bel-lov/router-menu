@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React from "react";
+import Menu from './components/Menu';
+import HomePage from './components/HomePage';
+import DriftPage from './components/DriftPage';
+import TimeAttackPage from './components/TimeAttackPage';
+import ForzaPage from './components/ForzaPage';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div>
+        <Menu />
+        <div className='page'>
+          <Route path='/' exact element={<HomePage />} />
+          <Route path='/drift' exact element={<DriftPage />} />
+          <Route path='/timeattack' exact element={<TimeAttackPage />} />
+          <Route path='/forza' exact element={<ForzaPage />} />
+        </div>
+      </div>
+    </Router>
+  )
 }
 
 export default App;
